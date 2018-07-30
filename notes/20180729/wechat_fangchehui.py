@@ -13,7 +13,7 @@ from itchat.content import *
 msg_dict = {}
 
 # 文件存储临时目录
-rev_tmp_dir = "./"
+rev_tmp_dir = "./wx_files/"
 if not os.path.exists(rev_tmp_dir): os.mkdir(rev_tmp_dir)
 
 # 表情有一个问题 | 接受信息和接受note的msg_id不一致 巧合解决方案
@@ -118,7 +118,7 @@ def send_msg_helper(msg):
                     or old_msg["msg_type"] == "Attachment":
                 file = '@fil@%s' % (rev_tmp_dir + old_msg['msg_content'])
                 itchat.send(msg=file, toUserName='filehelper')
-                os.remove(rev_tmp_dir + old_msg['msg_content'])
+                # os.remove(rev_tmp_dir + old_msg['msg_content'])
             # 删除字典旧消息
             msg_dict.pop(old_msg_id)
 
